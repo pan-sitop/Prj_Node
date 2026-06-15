@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+<h2 class="text-info mb-3">Consulta 2: Detalle de Tareas por Proyecto</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr><th>Proyecto</th><th>Tarea</th><th>Asignado A</th><th>Fecha de Entrega</th><th>Estado de Tarea</th></tr>
+    </thead>
+    <tbody>
+    <% resultados.forEach((r)=>{ %>
+        <tr>
+            <td><%=r.proyecto%></td>
+            <td><%=r.tarea%></td>
+            <td><%=r.asignado_a%></td>
+            <td><%=new Date(r.fecha_entrega).toLocaleDateString('es-ES')%></td>
+            <td><%=r.estado_tarea%></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<%- include('partials/footer') %>

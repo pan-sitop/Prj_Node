@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+<h2 class="text-warning mb-3">Editar Proyecto</h2>
+<form action="/editar/<%=proyecto.id%>" method="POST" class="w-50 card p-4">
+    <div class="mb-3">
+        <label class="form-label">Nombre del Proyecto:</label>
+        <input type="text" name="nombre" value="<%=proyecto.nombre%>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Descripción:</label>
+        <textarea name="descripcion" class="form-control" required><%=proyecto.descripcion%></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Cliente:</label>
+        <select name="cliente_id" class="form-control" required>
+            <% clientes.forEach((c)=>{ %>
+                <option value="<%=c.id%>" <%=c.id===proyecto.cliente_id?'selected':''%>><%=c.nombre%></option>
+            <% }) %>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Estado:</label>
+        <select name="estado_id" class="form-control" required>
+            <% estados.forEach((e)=>{ %>
+                <option value="<%=e.id%>" <%=e.id===proyecto.estado_id?'selected':''%>><%=e.nombre%></option>
+            <% }) %>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-warning">Actualizar</button>
+</form>
+<%- include('partials/footer') %>

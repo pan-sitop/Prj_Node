@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<h2 class="text-info mb-3">Consulta 1: Total de Proyectos por Cliente</h2>
+<table class="table table-bordered table-hover w-50">
+    <thead>
+        <tr><th>Cliente</th><th>Total Proyectos</th></tr>
+    </thead>
+    <tbody>
+    <% resultados.forEach((r)=>{ %>
+        <tr><td><%=r.cliente%></td><td><%=r.total_proyectos%></td></tr>
+    <% }) %>
+    </tbody>
+</table>
+<%- include('partials/footer') %>

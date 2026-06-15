@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+<h2 class="text-primary mb-3">Lista de Proyectos</h2>
+<a href="/crear" class="btn btn-success mb-3">Nuevo Proyecto</a>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr><th>ID</th><th>Proyecto</th><th>Descripción</th><th>Cliente</th><th>Estado</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+    <% proyectos.forEach((p)=>{ %>
+        <tr>
+            <td><%=p.id%></td>
+            <td><%=p.nombre%></td>
+            <td><%=p.descripcion%></td>
+            <td><%=p.cliente%></td>
+            <td><%=p.estado%></td>
+            <td>
+                <a href="/editar/<%=p.id%>" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/eliminar/<%=p.id%>" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar?');">Eliminar</a>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<%- include('partials/footer') %>
