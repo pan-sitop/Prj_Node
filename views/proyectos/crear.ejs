@@ -1,6 +1,6 @@
-<%- include('partials/header') %>
+<%- include('../partials/header') %>
 <h2 class="text-success mb-3">Crear Proyecto</h2>
-<form action="/crear" method="POST" class="w-50 card p-4">
+<form action="/proyectos/crear" method="POST" class="w-50 card p-4">
     <div class="mb-3">
         <label class="form-label">Nombre del Proyecto:</label>
         <input type="text" name="nombre" class="form-control" required>
@@ -27,4 +27,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
-<%- include('partials/footer') %>
+<%- include('../partials/footer') %>

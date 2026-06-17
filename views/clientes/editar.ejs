@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+<h2 class="text-warning mb-3">Editar Cliente</h2>
+<form action="/clientes/editar/<%=cliente.id%>" method="POST" class="w-50 card p-4">
+    <div class="mb-3">
+        <label class="form-label">Nombre de la Empresa o Cliente:</label>
+        <input type="text" name="nombre" value="<%=cliente.nombre%>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Contacto (Email/Teléfono):</label>
+        <input type="text" name="contacto" value="<%=cliente.contacto%>" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-warning">Actualizar Cliente</button>
+</form>
+<%- include('../partials/footer') %>

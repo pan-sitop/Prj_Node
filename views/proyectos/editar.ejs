@@ -1,6 +1,6 @@
-<%- include('partials/header') %>
+<%- include('../partials/header') %>
 <h2 class="text-warning mb-3">Editar Proyecto</h2>
-<form action="/editar/<%=proyecto.id%>" method="POST" class="w-50 card p-4">
+<form action="/proyectos/editar/<%=proyecto.id%>" method="POST" class="w-50 card p-4">
     <div class="mb-3">
         <label class="form-label">Nombre del Proyecto:</label>
         <input type="text" name="nombre" value="<%=proyecto.nombre%>" class="form-control" required>
@@ -27,4 +27,4 @@
     </div>
     <button type="submit" class="btn btn-warning">Actualizar</button>
 </form>
-<%- include('partials/footer') %>
+<%- include('../partials/footer') %>

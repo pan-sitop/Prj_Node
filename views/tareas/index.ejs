@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold mb-0 text-primary">Lista de Tareas</h3>
+    <a href="/tareas/crear" class="btn btn-primary shadow-sm"><i class="bi bi-plus-lg"></i> Nueva Tarea</a>
+</div>
+
+<div class="card overflow-hidden">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th class="py-3 px-4">ID</th>
+                    <th class="py-3 px-4">Tarea</th>
+                    <th class="py-3 px-4">Proyecto</th>
+                    <th class="py-3 px-4">Responsable</th>
+                    <th class="py-3 px-4">Entrega</th>
+                    <th class="py-3 px-4">Estado</th>
+                    <th class="py-3 px-4 text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% tareas.forEach((t)=>{ %>
+                <tr>
+                    <td class="px-4 text-muted">#<%=t.id%></td>
+                    <td class="px-4 fw-semibold"><i class="bi bi-check2-square text-success me-2"></i><%=t.nombre%></td>
+                    <td class="px-4"><%=t.proyecto%></td>
+                    <td class="px-4"><%=t.asignado_a%></td>
+                    <td class="px-4"><%=new Date(t.fecha_entrega).toLocaleDateString('es-ES')%></td>
+                    <td class="px-4"><span class="badge bg-secondary"><%=t.estado%></span></td>
+                    <td class="px-4 text-center">
+                        <a href="/tareas/editar/<%=t.id%>" class="btn btn-sm btn-outline-warning border-0"><i class="bi bi-pencil-square"></i></a>
+                        <a href="/tareas/eliminar/<%=t.id%>" class="btn btn-sm btn-outline-danger border-0" onclick="return confirm('¿Eliminar esta tarea?');"><i class="bi bi-trash3"></i></a>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include('../partials/footer') %>
